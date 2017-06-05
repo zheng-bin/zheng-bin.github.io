@@ -4,15 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>破解校园锐捷畅想无线 | zheng-bin</title>
+    <title>GCC | zheng-bin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Bin Zheng">
     
-    <meta name="description" content="简介原理简介路由器相当于一台小型计算机，可手动刷入linux系统（网友制作的dd-wrt和openwrt是两种流传较广的linux系统），并在这个系统里运行锐捷拨号程序。
-路由器简介
-目前刷过2种型号的路由器，分别是TP-Link和D-Link。
-这次先刷一个dlink的路由器，型号是DIR-615">
+    <meta name="description" content="GCC程序编译
+Linux系统下的gcc（GUN C Compiler）是GUN推出的功能强大、性能优越的多平台编译器，是GUN代表作之一。gcc可以在多种硬件平台上编译出可执行程序，其执行效率与一般的编译器相比平均效率要高20%-30%。gcc又是一个交叉平台编译器，它能够在当前CPU平台上为多种">
     
     
     
@@ -74,7 +72,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/10/09/破解校园锐捷畅想无线/" title="破解校园锐捷畅想无线" itemprop="url">破解校园锐捷畅想无线</a>
+      <a href="/2016/09/06/GCC/" title="GCC" itemprop="url">GCC</a>
   </h1>
   <!-- 显示作者
   <p class="article-author">By
@@ -83,8 +81,8 @@
     </p>
   -->  
   <p class="article-time">
-    <time datetime="2015-10-09T06:38:33.000Z" itemprop="datePublished">2015-10-09</time>
-    更新日期:<time datetime="2017-06-05T15:26:43.609Z" itemprop="dateModified">2017-06-06</time>
+    <time datetime="2016-09-05T15:37:51.000Z" itemprop="datePublished">2016-09-06</time>
+    更新日期:<time datetime="2017-06-05T15:44:27.983Z" itemprop="dateModified">2017-06-06</time>
     
   </p>
 </header>
@@ -94,68 +92,44 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理简介"><span class="toc-number">1.1.</span> <span class="toc-text">原理简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由器简介"><span class="toc-number">1.2.</span> <span class="toc-text">路由器简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刷机教程"><span class="toc-number">2.</span> <span class="toc-text">刷机教程</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC程序编译"><span class="toc-number">1.</span> <span class="toc-text">GCC程序编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GCC编译过程"><span class="toc-number">1.1.</span> <span class="toc-text">GCC编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-预处理-Pre-Processing"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 预处理(Pre-Processing)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译-Compiling"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 编译(Compiling)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-汇编-Assembling"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 汇编(Assembling)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-链接-Linking"><span class="toc-number">1.1.4.</span> <span class="toc-text">4. 链接(Linking)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCC基本用法"><span class="toc-number">1.2.</span> <span class="toc-text">GCC基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-number">1.2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例演示"><span class="toc-number">1.2.2.</span> <span class="toc-text">实例演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#test-c经历的编译过程"><span class="toc-number">1.2.3.</span> <span class="toc-text">test.c经历的编译过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用编译选项"><span class="toc-number">1.2.4.</span> <span class="toc-text">常用编译选项</span></a></li></ol></li></ol></li></ol>
 		</div>
 		
-		<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="原理简介"><a href="#原理简介" class="headerlink" title="原理简介"></a>原理简介</h3><p>路由器相当于一台小型计算机，可手动刷入linux系统（网友制作的dd-wrt和openwrt是两种流传较广的linux系统），并在这个系统里运行锐捷拨号程序。</p>
-<h3 id="路由器简介"><a href="#路由器简介" class="headerlink" title="路由器简介"></a>路由器简介</h3><ol>
-<li>目前刷过2种型号的路由器，分别是TP-Link和D-Link。</li>
-<li>这次先刷一个dlink的路由器，型号是DIR-615，D4版本的（这个版本的好处是dd-wrt和openwrt两个固件都可以刷），经过测试，刷dd-wrt的路由器网速明显高于刷openwrt的但并不是所有路由器都支持刷机的，刷不成就成砖了，还得买一条TTL线进行修复。</li>
-<li>dd-wrt支持的路由器列表：<a href="http://www.dd-wrt.com/site/support/router-database" target="_blank" rel="external">http://www.dd-wrt.com/site/support/router-database</a></li>
-<li>openwrt支持的路由器列表：<a href="http://wiki.openwrt.org/toh/start" target="_blank" rel="external">http://wiki.openwrt.org/toh/start</a></li>
+		<h1 id="GCC程序编译"><a href="#GCC程序编译" class="headerlink" title="GCC程序编译"></a>GCC程序编译</h1><blockquote>
+<p>Linux系统下的gcc（GUN C Compiler）是GUN推出的功能强大、性能优越的多平台编译器，是GUN代表作之一。gcc可以在多种硬件平台上编译出可执行程序，其执行效率与一般的编译器相比平均效率要高20%-30%。<br>gcc又是一个交叉平台编译器，它能够在当前CPU平台上为多种不同体系结构的硬件平台开发软件，因此尤其适合在嵌入式领域的开发编译。</p>
+</blockquote>
+<h2 id="GCC编译过程"><a href="#GCC编译过程" class="headerlink" title="GCC编译过程"></a>GCC编译过程</h2><h3 id="1-预处理-Pre-Processing"><a href="#1-预处理-Pre-Processing" class="headerlink" title="1. 预处理(Pre-Processing)"></a>1. 预处理(Pre-Processing)</h3><blockquote>
+<p>在该阶段，对包含的头文件（#include）和宏定义（#define、#ifdef等）进行处理 。可以使用gcc的选项“-E” 让gcc在预处理结束后停止编译过程。</p>
+</blockquote>
+<h3 id="2-编译-Compiling"><a href="#2-编译-Compiling" class="headerlink" title="2. 编译(Compiling)"></a>2. 编译(Compiling)</h3><blockquote>
+<p>接下来进行的是编译阶段，在这个阶段中，gcc首先要检查代码的规范性、是否有语法错误等，以确定代码的实际要做的工作，在检查无误后，gcc把代码翻译成汇编语言。用户可以使用“-S”选项来进行查看，该选项只进行编译而不进行汇编，生成汇编代码。</p>
+</blockquote>
+<h3 id="3-汇编-Assembling"><a href="#3-汇编-Assembling" class="headerlink" title="3. 汇编(Assembling)"></a>3. 汇编(Assembling)</h3><blockquote>
+<p>汇编阶段把编译阶段生成的汇编程序.s转成目标文件.o，使用-c选项，可以把汇编程序转换成二进制目标代码。</p>
+</blockquote>
+<h3 id="4-链接-Linking"><a href="#4-链接-Linking" class="headerlink" title="4. 链接(Linking)"></a>4. 链接(Linking)</h3><blockquote>
+<p>把目标代码链接起来，转换成为可执行文件。</p>
+</blockquote>
+<h2 id="GCC基本用法"><a href="#GCC基本用法" class="headerlink" title="GCC基本用法"></a>GCC基本用法</h2><blockquote>
+<p>gcc g++用法类似，下面以gcc为例</p>
+</blockquote>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>gcc  [选项]  要编译的文件  [选项]  [目标文件]</p>
+<h3 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h3><p>:test.c<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>include &lt;stdio.h&gt;</div><div class="line"><span class="meta"></span></div><div class="line">#define NAME "zheng"</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line"></div><div class="line">	printf("hello %s\n", NAME);</div><div class="line">	return 0;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译和运行程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gcc test.c -o test</div><div class="line">$ ./test</div></pre></td></tr></table></figure></p>
+<p>输出：hello zheng</p>
+<h3 id="test-c经历的编译过程"><a href="#test-c经历的编译过程" class="headerlink" title="test.c经历的编译过程"></a>test.c经历的编译过程</h3><p><strong>gcc –预处理</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc -E test.c -o test.i</div></pre></td></tr></table></figure></p>
+<p><strong>gcc –编译阶段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc -S test.i -o test.s</div></pre></td></tr></table></figure></p>
+<p><strong>gcc –汇编阶段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc -c test.s -o test.o</div></pre></td></tr></table></figure></p>
+<p><strong>gcc—链接阶段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc test.o -o test</div></pre></td></tr></table></figure></p>
+<h3 id="常用编译选项"><a href="#常用编译选项" class="headerlink" title="常用编译选项"></a>常用编译选项</h3><ol>
+<li>-o output_filename：确定可执行文件的名称为output_filename，如果不给出该选项，gcc会给出预设的可执行文件a.out</li>
+<li>-c：只编译，不连接成可执行文件，编译器只是由输入的.c等源代码文件-生成.o为后缀的目标文件。</li>
+<li>-S：生成一个后缀为.s的汇编文件</li>
+<li>-E：对源代码只进行预处理</li>
+<li>-g：产生调试工具所必须的符号信息，要相对编译的程序进行调试，就必须加入这个选项。</li>
+<li>-O：对程序进行优化编译、链接，采用这个选项，整个源代码会在编译、链接过程中进行优化处理，这样产生的可执行文件的执行效率可以提高，但是，编译、链接的速度就相应的要慢一些。</li>
+<li>-O2：比-O更好的优化编译、链接，当然整个编译、链接过程会更慢。</li>
 </ol>
-<h2 id="刷机教程"><a href="#刷机教程" class="headerlink" title="刷机教程"></a>刷机教程</h2><ol>
-<li>修改电脑的ip地址<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">IP地址： 192.168.0.25</div><div class="line">子网掩码： 255.255.255.0</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="ip地址修改.png" alt="ip地址修改"></p>
-<ol>
-<li>刷dd-wrt固件到路由器里</li>
-</ol>
-<p>见下图，是D-Link路由器照片，先别通电，把校园网主网线接在路由器的internet口，电脑的网线接在路由器剩下4个口其中一个就可以了。此时先用东西抵住路由器的复位键（RESET），然后通电，会看到路由器电源灯在闪烁<br><img src="d-Link路由器.png" alt="D-Link路由器"></p>
-<p><img src="d_Link路由器02.png" alt="D_Link路由器02"></p>
-<ol>
-<li>在浏览器网址输入192.168.0.1，并把固件放入后点击升级后等待就可以了。</li>
-</ol>
-<ul>
-<li>固件链接（D-Link信号的DIR-615的D4版本），不是这个型号的不要乱刷，否则会成砖的<br>dd-wrt固件链接：<a href="http://pan.baidu.com/s/1mgpfX0W" target="_blank" rel="external">http://pan.baidu.com/s/1mgpfX0W</a><br><img src="刷机01.png" alt="刷机01"></li>
-</ul>
-<p><img src="刷机02.png" alt="刷机02"></p>
-<ol>
-<li><p>第一个固件刷入完毕，把电脑IP改回自动获取<br><img src="iP01.png" alt="IP01"></p>
-</li>
-<li><p>这一步进行汉化配置，浏览器网址输入192.168.1.1后弹出路由器登陆界面，3个都改成admin（这个随意），然后选择Administrator，往下拉会看到Language Select选项，进行配置后保存即可，然后界面就是简体中文了，见图：<br><img src="汉化01.png" alt="汉化01"></p>
-</li>
-</ol>
-<p><img src="汉化02.png" alt="汉化02"></p>
-<p><img src="汉化03.png" alt="汉化03"></p>
-<ol>
-<li>这一步刷入第二个固件来支持锐捷拨号，登陆192.168.1.1，选择“管理”-&gt;“固件”-&gt;”固件升级”，放入固件点击“升级”，接着等待就可以了，见图：<br><img src="支持拨号01.png" alt="支持拨号01"></li>
-</ol>
-<p><img src="支持拨号02.png" alt="支持拨号02"></p>
-<p><img src="支持拨号03.png" alt="支持拨号03"></p>
-<ol>
-<li>到此所以固件升级完毕，进行配置啦（嘿嘿），进入192.168.1.1，选“设置”下拉找到Secure Shell后启用SSHd，再到“管理”-&gt;”远程管理”，启用“SSH管理”和“Telnet管理”，保存。<br><img src="0701.png" alt="0701"></li>
-</ol>
-<p><img src="0702.png" alt="0702"></p>
-<ol>
-<li>学校的IP是动态IP，所以很省事，不用再配置路由器了，静态IP要进入管理界面设置ip、子网掩码、网关、DNS服务器等。</li>
-</ol>
-<ul>
-<li>点击电脑左下角的“开始”-“运行”，输入“cmd”，弹出一个dos窗口。</li>
-<li>输入 telnet 192.168.1.1 连接路由器（注意此时有可能提示“无telnet指令”或“不是内部或者外部命令”。解决方法：在控制面板“程序和功能”页面左边的“打开或关闭windows功能”，勾选telnet服务器和telnet客户端）</li>
-<li>接下来需要输入账号：root和密码：admin，按回车<br><img src="0801.png" alt="0801"></li>
-<li>查看是用哪个网卡来拨号，输入ifconfig后，查看到我用的是网卡2（就2个网卡，vlan2和vlan1）<br><img src="0802.png" alt="0802"></li>
-<li><p>确定了是用哪个网卡后就要输入指令了，咱们学校是动态IP，输入如下指令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mentohust -u用户名 -p密码 -n网卡名 -a1 -d2 -v版本号</div><div class="line">如：mentohust –u1234 –p1234 -nvlan2 -a1 -d2 -v6.02</div><div class="line">（版本号是锐捷版本，如-v6.02）</div></pre></td></tr></table></figure>
-</li>
-<li><p>按下回车后会看到下图：表明开启成功，这时路由器就有网了<br><img src="0803.png" alt="0803"></p>
-</li>
-<li>再进入路由器的设置界面（在浏览器地址栏输入“192.168.1.1”用户名密码admin），<br>进去选项卡“管理”–“命令”，输入上一步的命令,点击“保存为防火墙指令”<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mentohust –u1234 –p1234 -nvlan2 -a1 -d2 -v6.02</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="0804.png" alt="0804"></p>
-<p>到此所有配置完毕，以后就不用管理路由器了，畅享无线吧</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -186,7 +160,7 @@ var jiathis_config = {data_track_clickback:'true'};
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/路由器/">路由器</a>
+  <span></span> <a href="/tags/gcc-linux/">-gcc -linux</a>
   </div>
 
 
@@ -196,20 +170,28 @@ var jiathis_config = {data_track_clickback:'true'};
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/06/GCC/" title="GCC">
+ <a href="/2017/06/04/hello-world/" title="Hello World">
   <strong>上一篇:</strong><br/>
   <span>
-  GCC</span>
+  Hello World</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/10/09/破解校园锐捷畅想无线/"  title="破解校园锐捷畅想无线">
+ <strong>下一篇:</strong><br/> 
+ <span>破解校园锐捷畅想无线
+</span>
+</a>
+</div>
 
 </nav>
 
 	<!-- 多说-->
 
 <section class="comment">
-<div class="ds-thread" data-thread-key="post-破解校园锐捷畅想无线" data-title="破解校园锐捷畅想无线" data-url="http://yoursite.com/2015/10/09/破解校园锐捷畅想无线/"></div>
+<div class="ds-thread" data-thread-key="post-GCC" data-title="GCC" data-url="http://yoursite.com/2016/09/06/GCC/"></div>
 </section>
 <!-- disqus-->
 
