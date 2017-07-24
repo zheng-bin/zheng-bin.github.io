@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Tag: Linux | zheng-bin</title>
+    <title>Tag: linux | zheng-bin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Bin Zheng">
@@ -65,7 +65,7 @@
         
 
 <div class="archive-title" >
-  <h2 class="tag-icon">Linux</h2>
+  <h2 class="tag-icon">linux</h2>
   
 </div>
 <div id="main" class="archive-part clearfix">
@@ -73,21 +73,11 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/01/23/linux-sed用法/" title="linux sed用法" itemprop="url">
+    <a href="/2016/09/06/GCC/" title="GCC" itemprop="url">
   
-    <h1 itemprop="name">linux sed用法</h1>
+    <h1 itemprop="name">GCC</h1>
     
-    <time datetime="2017-01-23T14:00:20.000Z" itemprop="datePublished">2017-01-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/11/12/Linux进程间通信方式/" title="Linux进程间通信方式" itemprop="url">
-  
-    <h1 itemprop="name">Linux进程间通信方式</h1>
-    
-    <time datetime="2016-11-11T16:49:35.000Z" itemprop="datePublished">2016-11-12</time>
+    <time datetime="2016-09-05T16:37:51.000Z" itemprop="datePublished">2016-09-06</time>
   </a>
 </section>
 
@@ -206,6 +196,23 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		$(window).scroll(function () {            
 			var scrollTop = $(document).scrollTop();       
 			if ( scrollTop > upperLimit ) {
+				$(scrollElem).stop().fadeTo(300, 1); // fade back in           
+			}else{       
+				$(scrollElem).stop().fadeTo(300, 0); // fade out
+			}
+		});
+		// Scroll to top animation on click
+		$(scrollElem).click(function(){
+			$('html, body').animate({scrollTop:0}, scrollSpeed); return false;
+		});
+	})(jQuery);
+</script>
+
+
+    </body>
+   </html>
+
+rollTop > upperLimit ) {
 				$(scrollElem).stop().fadeTo(300, 1); // fade back in           
 			}else{       
 				$(scrollElem).stop().fadeTo(300, 0); // fade out
