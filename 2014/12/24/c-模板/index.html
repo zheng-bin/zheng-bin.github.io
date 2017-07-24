@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>GCC | zheng-bin</title>
+    <title>c++ 模板 | zheng-bin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Bin Zheng">
     
-    <meta name="description" content="GCC程序编译
-Linux系统下的gcc（GUN C Compiler）是GUN推出的功能强大、性能优越的多平台编译器，是GUN代表作之一。gcc可以在多种硬件平台上编译出可执行程序，其执行效率与一般的编译器相比平均效率要高20%-30%。gcc又是一个交叉平台编译器，它能够在当前CPU平台上为多种">
+    <meta name="description" content="模板函数模板类模板">
     
     
     
@@ -70,7 +69,7 @@ Linux系统下的gcc（GUN C Compiler）是GUN推出的功能强大、性能优�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/06/GCC/" title="GCC" itemprop="url">GCC</a>
+      <a href="/2014/12/24/c-模板/" title="c++ 模板" itemprop="url">c++ 模板</a>
   </h1>
   <!-- 显示作者
   <p class="article-author">By
@@ -79,7 +78,7 @@ Linux系统下的gcc（GUN C Compiler）是GUN推出的功能强大、性能优�
     </p>
   -->  
   <p class="article-time">
-    <time datetime="2016-09-05T16:37:51.000Z" itemprop="datePublished">2016-09-06</time>
+    <time datetime="2014-12-24T13:12:16.000Z" itemprop="datePublished">2014-12-24</time>
   </p>
 </header>
 
@@ -88,45 +87,10 @@ Linux系统下的gcc（GUN C Compiler）是GUN推出的功能强大、性能优�
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC程序编译"><span class="toc-number">1.</span> <span class="toc-text">GCC程序编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GCC编译过程"><span class="toc-number">1.1.</span> <span class="toc-text">GCC编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-预处理-Pre-Processing"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 预处理(Pre-Processing)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译-Compiling"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 编译(Compiling)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-汇编-Assembling"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 汇编(Assembling)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-链接-Linking"><span class="toc-number">1.1.4.</span> <span class="toc-text">4. 链接(Linking)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCC基本用法"><span class="toc-number">1.2.</span> <span class="toc-text">GCC基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-number">1.2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例演示"><span class="toc-number">1.2.2.</span> <span class="toc-text">实例演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#test-c经历的编译过程"><span class="toc-number">1.2.3.</span> <span class="toc-text">test.c经历的编译过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用编译选项"><span class="toc-number">1.2.4.</span> <span class="toc-text">常用编译选项</span></a></li></ol></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模板"><span class="toc-number">1.</span> <span class="toc-text">模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数模板"><span class="toc-number">1.1.</span> <span class="toc-text">函数模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类模板"><span class="toc-number">1.2.</span> <span class="toc-text">类模板</span></a></li></ol></li></ol>
 		</div>
 		
-		<h1 id="GCC程序编译"><a href="#GCC程序编译" class="headerlink" title="GCC程序编译"></a>GCC程序编译</h1><blockquote>
-<p>Linux系统下的gcc（GUN C Compiler）是GUN推出的功能强大、性能优越的多平台编译器，是GUN代表作之一。gcc可以在多种硬件平台上编译出可执行程序，其执行效率与一般的编译器相比平均效率要高20%-30%。<br>gcc又是一个交叉平台编译器，它能够在当前CPU平台上为多种不同体系结构的硬件平台开发软件，因此尤其适合在嵌入式领域的开发编译。</p>
-</blockquote>
-<h2 id="GCC编译过程"><a href="#GCC编译过程" class="headerlink" title="GCC编译过程"></a>GCC编译过程</h2><h3 id="1-预处理-Pre-Processing"><a href="#1-预处理-Pre-Processing" class="headerlink" title="1. 预处理(Pre-Processing)"></a>1. 预处理(Pre-Processing)</h3><blockquote>
-<p>在该阶段，对包含的头文件（#include）和宏定义（#define、#ifdef等）进行处理 。可以使用gcc的选项“-E” 让gcc在预处理结束后停止编译过程。</p>
-</blockquote>
-<h3 id="2-编译-Compiling"><a href="#2-编译-Compiling" class="headerlink" title="2. 编译(Compiling)"></a>2. 编译(Compiling)</h3><blockquote>
-<p>接下来进行的是编译阶段，在这个阶段中，gcc首先要检查代码的规范性、是否有语法错误等，以确定代码的实际要做的工作，在检查无误后，gcc把代码翻译成汇编语言。用户可以使用“-S”选项来进行查看，该选项只进行编译而不进行汇编，生成汇编代码。</p>
-</blockquote>
-<h3 id="3-汇编-Assembling"><a href="#3-汇编-Assembling" class="headerlink" title="3. 汇编(Assembling)"></a>3. 汇编(Assembling)</h3><blockquote>
-<p>汇编阶段把编译阶段生成的汇编程序.s转成目标文件.o，使用-c选项，可以把汇编程序转换成二进制目标代码。</p>
-</blockquote>
-<h3 id="4-链接-Linking"><a href="#4-链接-Linking" class="headerlink" title="4. 链接(Linking)"></a>4. 链接(Linking)</h3><blockquote>
-<p>把目标代码链接起来，转换成为可执行文件。</p>
-</blockquote>
-<h2 id="GCC基本用法"><a href="#GCC基本用法" class="headerlink" title="GCC基本用法"></a>GCC基本用法</h2><blockquote>
-<p>gcc g++用法类似，下面以gcc为例</p>
-</blockquote>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>gcc  [选项]  要编译的文件  [选项]  [目标文件]</p>
-<h3 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h3><p>:test.c<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>include &lt;stdio.h&gt;</div><div class="line"><span class="meta"></span></div><div class="line">#define NAME "zheng"</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line"></div><div class="line">	printf("hello %s\n", NAME);</div><div class="line">	return 0;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译和运行程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gcc test.c -o test</div><div class="line">$ ./test</div></pre></td></tr></table></figure></p>
-<p>输出：hello zheng</p>
-<h3 id="test-c经历的编译过程"><a href="#test-c经历的编译过程" class="headerlink" title="test.c经历的编译过程"></a>test.c经历的编译过程</h3><p><strong>gcc –预处理</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc -E test.c -o test.i</div></pre></td></tr></table></figure></p>
-<p><strong>gcc –编译阶段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc -S test.i -o test.s</div></pre></td></tr></table></figure></p>
-<p><strong>gcc –汇编阶段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc -c test.s -o test.o</div></pre></td></tr></table></figure></p>
-<p><strong>gcc—链接阶段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc test.o -o test</div></pre></td></tr></table></figure></p>
-<h3 id="常用编译选项"><a href="#常用编译选项" class="headerlink" title="常用编译选项"></a>常用编译选项</h3><ol>
-<li>-o output_filename：确定可执行文件的名称为output_filename，如果不给出该选项，gcc会给出预设的可执行文件a.out</li>
-<li>-c：只编译，不连接成可执行文件，编译器只是由输入的.c等源代码文件-生成.o为后缀的目标文件。</li>
-<li>-S：生成一个后缀为.s的汇编文件</li>
-<li>-E：对源代码只进行预处理</li>
-<li>-g：产生调试工具所必须的符号信息，要相对编译的程序进行调试，就必须加入这个选项。</li>
-<li>-O：对程序进行优化编译、链接，采用这个选项，整个源代码会在编译、链接过程中进行优化处理，这样产生的可执行文件的执行效率可以提高，但是，编译、链接的速度就相应的要慢一些。</li>
-<li>-O2：比-O更好的优化编译、链接，当然整个编译、链接过程会更慢。</li>
-</ol>
-  
+		<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><h2 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-share" id="share">
@@ -156,7 +120,7 @@ var jiathis_config = {data_track_clickback:'true'};
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/gcc/">gcc</a><a href="/tags/linux/">linux</a>
+  <span></span> <a href="/tags/C/">C++</a><a href="/tags/template/">template</a>
   </div>
 
 
@@ -166,28 +130,20 @@ var jiathis_config = {data_track_clickback:'true'};
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/11/12/Linux进程间通信方式/" title="Linux进程间通信方式">
+ <a href="/2015/10/09/破解校园锐捷畅想无线/" title="破解校园锐捷畅想无线">
   <strong>上一篇:</strong><br/>
   <span>
-  Linux进程间通信方式</span>
+  破解校园锐捷畅想无线</span>
 </a>
 </div>
 
-
-<div class="next">
-<a href="/2015/10/09/破解校园锐捷畅想无线/"  title="破解校园锐捷畅想无线">
- <strong>下一篇:</strong><br/> 
- <span>破解校园锐捷畅想无线
-</span>
-</a>
-</div>
 
 </nav>
 
 	<!-- 多说-->
 
 <section class="comment">
-<div class="ds-thread" data-thread-key="post-GCC" data-title="GCC" data-url="http://yoursite.com/2016/09/06/GCC/"></div>
+<div class="ds-thread" data-thread-key="post-c++ 模板" data-title="c++ 模板" data-url="http://yoursite.com/2014/12/24/c-模板/"></div>
 </section>
 <!-- disqus-->
 
