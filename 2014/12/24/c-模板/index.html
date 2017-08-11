@@ -106,10 +106,27 @@
 </li>
 </ul>
 <h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><ul>
-<li>定义一个函数模板，获取数组元素最大值<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;string&gt;</div><div class="line"></div><div class="line">template&lt;typename T, int len&gt;</div><div class="line">T max(T array[len])</div><div class="line">&#123;</div><div class="line">	t max = array[0];</div><div class="line">	for(int i = 0; i &lt; len; i++)</div><div class="line">	&#123;</div><div class="line">		max = (max &gt; array[i]) ? max:array[i];</div><div class="line">	&#125;</div><div class="line">	return max;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line"></div><div class="line">	  int iarray1[5] = &#123;5, 7, 8, 9, 2&#125;;</div><div class="line">    int Max1 = max&lt;int, 5&gt;(iarray1);</div><div class="line">    printf(&quot;%d\n&quot;,Max1);</div><div class="line">    double iarray2[3]=&#123;1.23, 23.4, 12.2&#125;;</div><div class="line">    double Max2 = max&lt;double, 3&gt;(iarray2);</div><div class="line">    printf(&quot;%f\n&quot;,Max2);</div><div class="line">    return 0;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>定义一个函数模板，获取数组元素最大值<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;string&gt;</div><div class="line"></div><div class="line">template&lt;typename T, int len&gt;</div><div class="line">T max(T array[len])</div><div class="line">&#123;</div><div class="line">	t max = array[0];</div><div class="line">	for(int i = 0; i &lt; len; i++)</div><div class="line">	&#123;</div><div class="line">		max = (max &gt; array[i]) ? max:array[i];</div><div class="line">	&#125;</div><div class="line">	return max;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line"></div><div class="line">	  int iarray1[5] = &#123;5, 7, 8, 9, 2&#125;;</div><div class="line">    int Max1 = max&lt;int, 5&gt;(iarray1);</div><div class="line">    printf(&quot;%d\n&quot;,Max1);</div><div class="line">    double iarray2[3]=&#123;1.23, 23.4, 12.2&#125;;</div><div class="line">    double Max2 = max&lt;double, 3&gt;(iarray2);</div><div class="line">    printf(&quot;%f\n&quot;,Max2);</div><div class="line">    return 0;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h2>  
+<p>=======</p>
+<p>```</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>82c90aba39f2edb2496fc392c331600c27d7c9f8</p>
+<h2 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h2></blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-share" id="share">
